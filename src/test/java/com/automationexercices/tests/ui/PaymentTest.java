@@ -13,7 +13,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 @Epic("Automation Exercise")
-@Feature("UI Payment Management")
+@Feature("UI Payment Managementt")
 @Story("Payment Management")
 @Severity(SeverityLevel.CRITICAL)
 @Owner("Ahmed")
