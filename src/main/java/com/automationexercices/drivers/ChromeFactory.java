@@ -38,6 +38,10 @@ public class ChromeFactory extends AbstractDriver {
         options.setCapability(CapabilityType.UNHANDLED_PROMPT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
         options.setCapability(CapabilityType.ENABLE_DOWNLOADS, true);
         options.setAcceptInsecureCerts(true);
+        if(PropertyReader.getProperty("extentions").equalsIgnoreCase("enabled"))
+        {
+            options.addExtensions(haramBlurExtension);
+        }
         options.addExtensions(haramBlurExtension);
         switch (PropertyReader.getProperty("executionType"))
         {
