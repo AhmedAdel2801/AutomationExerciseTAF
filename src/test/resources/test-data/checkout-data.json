@@ -1,0 +1,41 @@
+{
+  "name": "CheckoutAutomation",
+  "email": "automationCheckoutTest_",
+  "titleMale": "Mr",
+  "titleFemale": "Mrs",
+  "password": "Test@1234",
+  "day": "15",
+  "month": "June",
+  "year": "1990",
+  "firstName": "Automation",
+  "lastName": "Checkout",
+  "company": "EXABAutomation",
+  "address1": "Automation123 Main St",
+  "address2": "Automation Apt 4B",
+  "country": "United States",
+  "state": "California",
+  "city": "Los Angeles",
+  "zipcode": "11835",
+  "mobileNumber": "15551234567",
+
+  "product" :
+  {
+    "name": "Men Tshirt",
+    "price": "Rs. 400",
+    "quantity": "1",
+    "total": "Rs. 400"
+  },
+  "cardData" : {
+    "nameOnCard" : "Payment Automation ",
+    "cardNumber": "4111111111111111",
+    "expiryMonth": "03",
+    "expiryYear": "2028",
+    "cvc": "311"
+  },
+  "messages" :
+  {
+    "cartAdded": "Your product has been added to cart.",
+      "orderPlaced": "ORDER PLACED!"
+    },
+  "invoiceName": "invoice.txt"
+  }
