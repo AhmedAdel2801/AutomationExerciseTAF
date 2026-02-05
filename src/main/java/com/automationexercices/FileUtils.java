@@ -9,7 +9,8 @@ import java.io.IOException;
 import static org.apache.commons.io.FileUtils.copyFile;
 
 public class FileUtils {
-    private static final String USER_DIR = PropertyReader.getProperty("user.dir")+ File.separator;
+    private static final String USER_DIR = PropertyReader.getProperty("user.dir") + File.separator;
+
     private FileUtils() {
         // Prevent instantiation
     }
@@ -36,14 +37,12 @@ public class FileUtils {
     //creating Directory
     public static void createDirectory(String path) {
         try {
-            File file = new File(USER_DIR+ path);
-            if (!file.exists())
-            {
+            File file = new File(USER_DIR + path);
+            if (!file.exists()) {
                 file.mkdirs();
                 LogsManager.info("Directory created: " + path);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LogsManager.error("Failed to create directory: " + path, e.getMessage());
         }
     }
@@ -59,21 +58,42 @@ public class FileUtils {
     }
 
     // cleaning Directory
-    public static void cleanDirectory(File file)
-    {
+    public static void cleanDirectory(File file) {
         try {
             org.apache.commons.io.FileUtils.deleteQuietly(file); //in use > skip
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LogsManager.error("Failed to clean directory: " + file.getAbsolutePath(), e.getMessage());
         }
     }
 
     //check if the file exists
-    public static boolean isFileExists( String fileName) {
-        String filePath = USER_DIR + "/src/test/resources/downloads/" ;
-        File file = new File(filePath+ fileName);
+    public static boolean isFileExists(String fileName, int i) {
+        String filePath = USER_DIR + "/src/test/resources/downloads/";
+        File file = new File(filePath + fileName);
         return file.exists();
     }
 
+    //wait for file to be downloaded
+    public static boolean isFileExist(String fileName, int numberOfRetries) {
+    boolean isFileExist = false;
+    int i = 0;
+    while (i < numberOfRetries) {
+        try {
+            String filePath = USER_DIR + "/src/test/resources/downloads/";
+            isFileExist=(new File(filePath + fileName)).getAbsoluteFile().exists();
+        }catch (Exception e) {
+            LogsManager.error("Error while checking file existence: " + e.getMessage());
+        }
+        if (!isFileExist) {
+            try {
+                Thread.sleep(500); // Wait for 1 second before retrying
+            } catch (Exception e) {
+                LogsManager.error("Thread interrupted while waiting: " + e.getMessage());
+            }
+            i++;
+        }
+
+    }
+        return isFileExist;
+    }
 }
