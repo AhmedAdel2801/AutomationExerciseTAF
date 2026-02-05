@@ -6,8 +6,8 @@
 
 ## Repository Information
 
-- **Owner:** [Ashraaf7](https://github.com/Ashraaf7)
-- **Repository URL:** [automation-exercise-test](https://github.com/Ashraaf7/TAF.git)
+- **Owner:** [AhmedAdel2801](https://github.com/AhmedAdel2801)
+- **Repository URL:** [automation-exercise-test](https://github.com/AhmedAdel2801/AutomationExerciseTAF.git)
 - **Primary Language:** Java
 
 ## 🚀 Features  
