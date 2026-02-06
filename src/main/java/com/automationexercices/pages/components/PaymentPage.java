@@ -19,11 +19,10 @@ public class PaymentPage {
     private final By cvc = By.name("cvc");
     private final By expirationMonth = By.name("expiry_month");
     private final By expirationYear = By.name("expiry_year");
-    private final By payAndConfirmOrderButton = By.id("submit");
-    private final By orderPlaced = By.cssSelector("h2 >  b");
-    private final By continueButton = By.id("continue-button");
+    private final By payAndConfirmOrderButton = By.xpath("//button[@data-qa='pay-button']");
+    private final By orderPlaced = By.cssSelector("h2 > b");
     private final By downloadInvoiceButton = By.xpath("//a[.='Download Invoice']");
-
+    private final By continueButton = By.id("continue-button");
     //Actions
     @Step("Fill Card Information: Name - {name}, Card Number - {cardNum}, CVC - {cvcNum}, Expiration Month - {expMonth}, Expiration Year - {expYear}")
     public PaymentPage fillCardInfo(String name, String cardNum, String cvcNum, String expMonth, String expYear) {
